@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "592159629073",
+    "project_id": "guia-de-arvores",
+    "storage_bucket": "guia-de-arvores.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592159629073:android:6343b8933e7a0f4cccf6b0",
+        "android_client_info": {
+          "package_name": "com.example.guia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592159629073-p3sfsgkvkm34fh7grivnv44vrn52h8g1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCezNeJ9nrrVlGoaAtniqSZLuDx7DvbX94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "592159629073-p3sfsgkvkm34fh7grivnv44vrn52h8g1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
