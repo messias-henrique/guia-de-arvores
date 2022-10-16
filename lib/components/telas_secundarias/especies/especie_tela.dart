@@ -2,17 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:guia/components/Telas%20Secundarias/card_dicionario.dart';
-import 'package:guia/components/Telas%20Secundarias/galeria.dart';
-import 'package:guia/components/card.dart';
-import 'package:guia/components/card_nome_cientifico.dart';
-import 'package:guia/components/column_builder.dart';
+import 'package:guia/components/widgets/card_dicionario.dart';
+import 'package:guia/components/widgets/galeria.dart';
+import 'package:guia/components/widgets/card.dart';
+import 'package:guia/components/widgets/card_nome_cientifico.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'card_nome_cientifico_var.dart';
+import '../../widgets/card_nome_cientifico_var.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 final Color cinza = Color.fromARGB(255, 224, 224, 224);
-final Color _color1 = const Color.fromRGBO(194, 213, 155, 1);
 final Color _color2 = Color.fromRGBO(55, 71, 79, 1);
 
 class EspecieTela extends StatefulWidget {
@@ -270,85 +268,6 @@ class _EspecieState extends State<Especie> {
                                 ),
                               ]),
                             ),
-                            // Container(
-                            //   color: Colors.white,
-                            //   height: MediaQuery.of(context).size.height * 0.45,
-                            //   width: MediaQuery.of(context).size.width,
-                            //   padding: EdgeInsets.only(left: 10.0),
-                            //   child: ListView.builder(
-                            //     physics: const BouncingScrollPhysics(),
-                            //     itemCount: (widget.quantImagens == 3)
-                            //         ? widget.quantImagens
-                            //         : 2,
-                            //     itemBuilder: (context, index) {
-                            //       return Padding(
-                            //           padding: EdgeInsets.only(
-                            //               right: 15.0, top: 10.0, bottom: 10.0),
-                            //           child: InkWell(
-                            //             onTap: () => Navigator.push(
-                            //               (context),
-                            //               PageRouteBuilder(
-                            //                 pageBuilder: (context, animation,
-                            //                         secondaryAnimation) =>
-                            //                     Galeria(
-                            //                         nome: widget.nome,
-                            //                         pasta: widget.pasta,
-                            //                         numero: index),
-                            //                 transitionsBuilder: (context,
-                            //                     animation,
-                            //                     secondaryAnimation,
-                            //                     child) {
-                            //                   const begin = Offset(1.0, 0.0);
-                            //                   const end = Offset.zero;
-                            //                   const curve = Curves.ease;
-
-                            //                   var tween = Tween(
-                            //                           begin: begin, end: end)
-                            //                       .chain(
-                            //                           CurveTween(curve: curve));
-
-                            //                   return SlideTransition(
-                            //                     position:
-                            //                         animation.drive(tween),
-                            //                     child: child,
-                            //                   );
-                            //                 },
-                            //               ),
-                            //             ),
-                            //             child: Container(
-                            //               width: (widget.quantImagens == 3)
-                            //                   ? MediaQuery.of(context)
-                            //                           .size
-                            //                           .height *
-                            //                       0.20
-                            //                   : MediaQuery.of(context)
-                            //                           .size
-                            //                           .height *
-                            //                       0.30,
-                            //               decoration: BoxDecoration(
-                            //                   borderRadius:
-                            //                       BorderRadius.circular(11.0),
-                            //                   color: Colors.black12,
-                            //                   image: DecorationImage(
-                            //                       image: AssetImage(
-                            //                         "assets/imagens/${widget.pasta}/${index + 1}.jpg",
-                            //                       ),
-                            //                       fit: BoxFit.cover),
-                            //                   shape: BoxShape.rectangle,
-                            //                   boxShadow: [
-                            //                     BoxShadow(
-                            //                       blurRadius: 5.0,
-                            //                       color: Colors.black38,
-                            //                     )
-                            //                   ]),
-                            //             ),
-                            //           ));
-                            //     },
-                            //     scrollDirection: Axis.horizontal,
-                            //     // itemCount: 3,
-                            //     addAutomaticKeepAlives: true,
-                            //   ),
-                            // ),
 
                             // ------------------------------------------------------------------------------------------
                             // Nome Científico -----------------------
@@ -428,11 +347,6 @@ class _EspecieState extends State<Especie> {
                                     _launched = _launchInWebViewOrVC(
                                         Uri.parse(data['link'].toString()));
                                   }),
-                                  // child: const Text('SiBBr link',
-                                  //     style: TextStyle(
-                                  //       color: Colors.blue,
-                                  //       decoration: TextDecoration.underline,
-                                  //     )),
                                   child: CardWidget(
                                       titulo: 'SiBBr',
                                       corpo:
@@ -446,53 +360,6 @@ class _EspecieState extends State<Especie> {
                                 lista: dicionario..sort(),
                               ),
                             ),
-                            // Container(
-                            //   height: 400,
-                            //   width: double.infinity,
-                            //   child: ColumnBuilder(
-                            //     itemCount: dicionario.length,
-                            //     itemBuilder: (context, index) {
-                            //       return StreamBuilder<QuerySnapshot>(
-                            //         stream: FirebaseFirestore.instance
-                            //             .collection('dicionario-botanico')
-                            //             .where('id',
-                            //                 isEqualTo: dicionario[index])
-                            //             .snapshots(),
-                            //         builder: (BuildContext context, snapshot) {
-                            //           if (!snapshot.hasData) {
-                            //             return Center(
-                            //                 child: CircularProgressIndicator(
-                            //                     strokeWidth: 5,
-                            //                     color: Color.fromRGBO(
-                            //                         194, 213, 155, 1)));
-                            //           }
-                            //           if (snapshot.hasData) {
-                            //             return ListView(
-                            //               physics: BouncingScrollPhysics(),
-                            //               scrollDirection: Axis.horizontal,
-                            //               children: snapshot.data!.docs
-                            //                   .map((DocumentSnapshot document) {
-                            //                 Map<String, dynamic> data2 =
-                            //                     document.data()!
-                            //                         as Map<String, dynamic>;
-
-                            //                 return Padding(
-                            //                   padding:
-                            //                       const EdgeInsets.all(2.0),
-                            //                   child: CardWidget(
-                            //                     titulo: "${data2['nome']}",
-                            //                     corpo: "${data2['id']}",
-                            //                   ),
-                            //                 );
-                            //               }).toList(),
-                            //             );
-                            //           }
-                            //           return SizedBox();
-                            //         },
-                            //       );
-                            //     },
-                            //   ),
-                            // ),
                           ],
                         ),
                       ),

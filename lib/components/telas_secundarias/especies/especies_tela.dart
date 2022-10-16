@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:guia/components/card_especie.dart';
+import 'package:guia/components/widgets/card_especie.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class EspeciesTela extends StatefulWidget {

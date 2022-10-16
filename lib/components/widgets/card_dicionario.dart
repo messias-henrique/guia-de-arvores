@@ -2,7 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:guia/components/column_builder.dart';
+import 'package:guia/components/widgets/column_builder.dart';
 
 final Color _color1 = Color.fromRGBO(194, 213, 155, 1);
 final Color _color2 = Color.fromRGBO(55, 71, 79, 1);

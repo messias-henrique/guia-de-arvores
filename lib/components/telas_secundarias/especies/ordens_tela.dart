@@ -2,9 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:guia/components/card_especie.dart';
-
-import '../especie_tela.dart';
+import 'package:guia/components/widgets/card_especie.dart';
 
 var _iconColor = Color.fromRGBO(55, 71, 79, 1);
 
@@ -60,7 +58,6 @@ class _OrdensTelaState extends State<OrdensTela> {
                         height: 10,
                       ),
                       SizedBox(
-                        // color: Colors.white,
                         width: double.infinity,
                         height: 20,
                         child: Padding(
@@ -88,17 +85,10 @@ class _OrdensTelaState extends State<OrdensTela> {
                           ),
                         ),
                       ),
-                      // Container(
-                      //   alignment: Alignment.center,
-                      //   color: Color.fromRGBO(55, 71, 79, 1),
-                      //   height: 1,
-                      //   width: MediaQuery.of(context).size.width,
-                      // ),
                       SizedBox(
                         width: double.infinity,
                         height: 2,
                       ),
-
                       Expanded(
                         child: Container(
                           height: 216,

@@ -2,7 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:guia/components/card_especie.dart';
+import 'package:guia/components/widgets/card_especie.dart';
 
 var _iconColor = Color.fromRGBO(55, 71, 79, 1);
 
@@ -13,8 +13,6 @@ class FamiliasTela extends StatefulWidget {
   State<FamiliasTela> createState() => _FamiliasTelaState();
 }
 
-List<Widget> cardEspecies = [];
-
 class _FamiliasTelaState extends State<FamiliasTela> {
   @override
   Widget build(BuildContext context) {
@@ -22,9 +20,7 @@ class _FamiliasTelaState extends State<FamiliasTela> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        leading: const BackButton(
-          color: Color.fromRGBO(55, 71, 79, 1), // <-- SEE HERE
-        ),
+        leading: const BackButton(color: Color.fromRGBO(55, 71, 79, 1)),
         title: Text(
           "Famílias",
           style: TextStyle(color: Color.fromRGBO(55, 71, 79, 1)),
@@ -47,8 +43,8 @@ class _FamiliasTelaState extends State<FamiliasTela> {
               }
               if (snapshot.hasData) {
                 return GridView(
-                  physics: BouncingScrollPhysics(),
-                  padding: EdgeInsets.all(20),
+                  physics: ClampingScrollPhysics(),
+                  padding: EdgeInsets.only(top: 20),
                   // padding: EdgeInsets.only(top: 20, bottom: 20),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 1,
@@ -58,46 +54,39 @@ class _FamiliasTelaState extends State<FamiliasTela> {
                       snapshot.data!.docs.map((DocumentSnapshot document) {
                     Map<String, dynamic> data =
                         document.data()! as Map<String, dynamic>;
-
                     return Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
+                        SizedBox(height: 10),
                         SizedBox(
-                          // color: Colors.white,
                           height: 20,
                           width: MediaQuery.of(context).size.width,
-                          child: Row(
-                            children: [
-                              Text(
-                                "${data['nome']}",
-                                style: TextStyle(
-                                  color: Color.fromRGBO(55, 71, 79, 1),
-                                  //fontFamily: 'Montserrat',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 20, right: 20),
+                            child: Center(
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "${data['nome']}",
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(55, 71, 79, 1),
+                                      //fontFamily: 'Montserrat',
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(width: 5),
+                                  Icon(
+                                    Icons.featured_play_list_rounded,
+                                    color: _iconColor,
+                                    size: 16,
+                                  ),
+                                ],
                               ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Icon(
-                                Icons.featured_play_list_rounded,
-                                color: _iconColor,
-                                size: 16,
-                              ),
-                            ],
+                            ),
                           ),
                         ),
-                        Container(
-                          alignment: Alignment.center,
-                          color: Color.fromRGBO(55, 71, 79, 1),
-                          height: 1,
-                          width: MediaQuery.of(context).size.width,
-                        ),
-                        SizedBox(
-                          width: double.infinity,
-                          height: 2,
-                        ),
+                        SizedBox(width: double.infinity, height: 2),
                         Expanded(
                           child: Container(
                             height: 216,
@@ -141,6 +130,11 @@ class _FamiliasTelaState extends State<FamiliasTela> {
                               },
                             ),
                           ),
+                        ),
+                        Container(
+                          color: Color.fromARGB(255, 206, 206, 206),
+                          height: 3,
+                          width: MediaQuery.of(context).size.width,
                         ),
                       ],
                     );

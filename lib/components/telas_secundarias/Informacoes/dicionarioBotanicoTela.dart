@@ -2,7 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:guia/components/card.dart';
+import 'package:guia/components/widgets/card.dart';
 
 var _verde = const Color.fromRGBO(168, 201, 174, 1);
 var _mainColor = _verde;

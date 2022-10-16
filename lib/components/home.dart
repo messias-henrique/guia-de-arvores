@@ -1,9 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'components/Telas Iniciais/inicio_tela.dart';
-import 'components/Telas Iniciais/localizacao.dart';
-import 'components/Telas Iniciais/localizacao_tela.dart';
-import 'components/Telas Iniciais/info_tela2.dart';
+import 'telas_iniciais/inicio_tela.dart';
+import 'telas_iniciais/localizacao_tela.dart';
+import 'telas_iniciais/info_tela.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 void main() {
@@ -12,9 +11,8 @@ void main() {
 
 final telas = [
   InicioTela(),
-  LocTela(),
-  // LocalizacaoTela(),
-  InfoTela(),
+  LocalizacaoTela(),
+  InformacaoTela(),
 ];
 
 int _page = 0;

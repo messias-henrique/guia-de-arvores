@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:splashscreen/splashscreen.dart';
-import 'home.dart';
+import 'components/home.dart';
 
 Color _color1 = Color.fromRGBO(194, 213, 155, 1);
 Color _color2 = Color.fromRGBO(55, 71, 79, 1);

@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import '../Telas Secundarias/especies_tela.dart';
-import '../Telas Secundarias/familias_tela.dart';
-import '../Telas Secundarias/ordens_tela.dart';
+import '../telas_secundarias/especies/especies_tela.dart';
+import '../telas_secundarias/especies/familias_tela.dart';
+import '../telas_secundarias/especies/ordens_tela.dart';
 
 Color _azul = Color.fromRGBO(55, 71, 79, 1);
 Color _verde = Color.fromRGBO(194, 213, 155, 1);
@@ -30,14 +30,13 @@ class _InicioTelaState extends State<InicioTela> {
       child: Column(
         children: [
           Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
                 color: Colors.white,
                 width: MediaQuery.of(context).size.width,
                 height: (MediaQuery.of(context).size.height / 2) - 100,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  // crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
@@ -57,6 +56,14 @@ class _InicioTelaState extends State<InicioTela> {
                         color: _azul,
                       ),
                     ),
+                    Text(
+                      "(Versão TCC)",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: _azul,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -64,7 +71,6 @@ class _InicioTelaState extends State<InicioTela> {
           ),
           Container(
             color: Colors.white,
-            // margin: const EdgeInsets.only(left: 8, right: 8),
             height: MediaQuery.of(context).size.height * 0.35,
             child: Center(
               child: ListView.builder(

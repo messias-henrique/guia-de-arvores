@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:guia/components/especie_tela.dart';
+import 'package:guia/components/telas_secundarias/especies/especie_tela.dart';
 
 Color _azul = Color.fromRGBO(55, 71, 79, 1);
 Color _verde = Color.fromRGBO(194, 213, 155, 1);
